@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/ZhangJss/BIANQUE/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/ZhangJss/BIANQUE/(.*)",
+      "dest": "/$1"
+    }
+  ]
+} 
