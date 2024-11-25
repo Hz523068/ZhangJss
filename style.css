@@ -1,0 +1,1052 @@
+:root {
+    --primary-color: #0066cc;
+    --tech-gradient: linear-gradient(45deg, #1a73e8, #34a853);
+    --tech-blue: #1a73e8;
+    --tech-green: #34a853;
+    --secondary-color: #333;
+    --background-color: #fff;
+    --light-gray: #f5f5f5;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+/* 导航栏样式优化 */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: var(--background-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    max-width: 1400px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0.5rem auto;
+    border-radius: var(--border-radius);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--border-radius);
+}
+
+.nav-links a:hover {
+    color: var(--tech-blue);
+    background: var(--light-gray);
+}
+
+/* 语言选择器样式优化 */
+.language-selector select {
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.language-selector select:hover {
+    border-color: var(--tech-blue);
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .main-nav {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 0.8rem 1rem;
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+    }
+    
+    .nav-links {
+        gap: 0.8rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .language-selector {
+        margin-left: auto;
+    }
+}
+
+/* 主横幅样式优化 */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('/imgs/background-picture.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 45px;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem 3rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    width: 90%;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.hero-content .cta-button {
+    background: var(--primary-color);
+    border: 2px solid transparent;
+}
+
+.hero-content .cta-button:hover {
+    background: transparent;
+    border-color: white;
+}
+
+/* 核心技术部分优化 */
+.core-tech {
+    padding: 5rem 8%;
+    background-color: var(--light-gray);
+}
+
+.tech-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tech-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+}
+
+.tech-icon {
+    width: 240px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.tech-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.tech-icon:hover {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.tech-icon:hover img {
+    transform: scale(1.1);
+}
+
+.tech-details {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tech-card h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    padding: 0 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.tech-details ul {
+    list-style: none;
+    margin: 0;
+    background: var(--light-gray);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    flex-grow: 1;
+}
+
+.tech-details li {
+    padding: 0.7rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.4;
+}
+
+.tech-details li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.tech-details p {
+    padding: 0.5rem 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-top: auto;
+}
+
+/* 检测能力部分优化 */
+.capabilities {
+    padding: 5rem 8%;
+    background: var(--light-gray);
+}
+
+.capability-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.capability-category {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.capability-category:hover {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.capability-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.capability-category ul {
+    list-style: none;
+    margin-top: 1rem;
+    flex-grow: 1;
+}
+
+.capability-category li {
+    padding: 0.7rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.capability-category li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .capability-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .capability-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 1rem;
+    }
+    
+    .capability-category {
+        padding: 1.5rem;
+    }
+    
+    .capability-category h3 {
+        font-size: 1.1rem;
+    }
+    
+    .capability-category li {
+        font-size: 0.9rem;
+        padding: 0.5rem 0 0.5rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .capability-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 按钮样式 */
+.cta-button, .contact-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cta-button:hover, .contact-button:hover {
+    background-color: #0052a3;
+    transform: translateY(-2px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .tech-cards, .capability-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-nav {
+        padding: 1rem 3%;
+    }
+}
+
+/* 行业背景部分优化 */
+.industry {
+    padding: 5rem 8%;
+    background: white;
+}
+
+.policy-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.policy-card {
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.policy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.policy-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.policy-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.policy-content .read-more {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    text-align: center;
+    margin-top: auto;
+}
+
+.policy-content .read-more:hover {
+    background: #0052a3;
+    transform: translateY(-2px);
+}
+
+.policy-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.policy-content p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 解决方案部分重新设计 */
+.solution-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.solution-cards .card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.solution-cards .card:hover {
+    transform: translateY(-5px);
+}
+
+.card-slider {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.card-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    background: var(--light-gray);
+    transition: opacity 0.5s ease;
+}
+
+.solution-cards .card > img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    background: var(--light-gray);
+}
+
+.charger-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    height: 400px;
+}
+
+.charger-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.solution-cards .card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+}
+
+.solution-cards .card p {
+    padding: 0 1.5rem 1.5rem;
+    color: #666;
+}
+
+/* 联系我们部分增强 */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-photo {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.team-photo img {
+    width: 100%;
+    height: auto;
+    transition: var(--transition);
+}
+
+.team-photo:hover img {
+    transform: scale(1.05);
+}
+
+.achievements {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.achievements li {
+    padding: 0.5rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.achievements li::before {
+    content: "✓";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .charger-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 修改图片加载失败的默认样式 */
+img {
+    position: relative;
+}
+
+img:not([src]), img[src=""] {
+    min-height: 200px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+img:not([src])::after, img[src=""]::after {
+    content: "图片加载失败";
+    position: absolute;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 响应式设计优化 */
+@media (max-width: 1200px) {
+    .tech-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-icon {
+        width: 220px;
+        height: 160px;
+        padding: 12px;
+    }
+    
+    .tech-card {
+        padding: 1.5rem;
+    }
+    
+    .tech-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tech-details li {
+        padding: 0.5rem 0;
+    }
+}
+
+/* 针对特别长的标题调整字体大小 */
+@media (max-width: 1400px) {
+    .tech-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* 应用场景部分样式优化 */
+.applications {
+    padding: 5rem 8%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.application-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.application-item {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.application-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+    transform: scaleX(0.3);
+    transition: transform 0.3s ease;
+}
+
+.application-item:hover::before {
+    transform: scaleX(1);
+}
+
+.application-item .icon {
+    width: 80px;
+    height: 80px;
+    background: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.application-item .icon i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.application-item h3 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.application-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--primary-color);
+    opacity: 0.5;
+}
+
+.application-item p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.application-item:hover {
+    transform: translateY(-5px);
+    background: var(--primary-color);
+}
+
+.application-item:hover h3,
+.application-item:hover p {
+    color: white;
+}
+
+.application-item:hover .icon {
+    background: white;
+}
+
+.application-item:hover h3::after {
+    background: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .application-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .application-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .application-item {
+        padding: 1.5rem;
+    }
+    
+    .application-item .icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .application-item .icon i {
+        font-size: 1.5rem;
+    }
+}
+
+/* 合作伙伴部分样式优化 */
+.partners {
+    padding: 5rem 8%;
+    background: white;
+    border-top: 1px solid var(--light-gray);
+}
+
+.partner-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.partner-logos img {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    transition: var(--transition);
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.partner-logos img:hover {
+    transform: scale(1.05);
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .partner-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .partner-logos img {
+        height: 60px;
+    }
+}
+
+/* Logo样式优化 */
+.logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.company-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--tech-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: "Source Han Sans CN", "Microsoft YaHei", sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 0.2rem;
+    text-align: center;
+}
+
+.company-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: var(--tech-gradient);
+    transform: translateX(-50%) scaleX(0.7);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .company-name::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.company-slogan {
+    font-size: 0.8rem;
+    color: #555;
+    white-space: nowrap;
+    font-family: "Source Han Sans CN", "Microsoft YaHei", sans-serif;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .company-name {
+        font-size: 1.8rem;
+    }
+    
+    .company-slogan {
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-slogan {
+        display: none;
+    }
+}
+
+/* 联系我们部分样式优化 */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #666;
+}
+
+.contact-item i {
+    width: 20px;
+    color: var(--tech-blue);
+    font-size: 1.2rem;
+}
+
+.social-media {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tech-blue);
+    font-size: 1.5rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: var(--tech-blue);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .contact-details {
+        padding: 1rem;
+    }
+    
+    .contact-item {
+        font-size: 0.9rem;
+    }
+    
+    .social-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-details {
+        font-size: 0.85rem;
+    }
+    
+    .social-media {
+        gap: 1rem;
+    }
+} 
